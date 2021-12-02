@@ -1,6 +1,7 @@
 import { Module } from '@nestjs/common';
 import {SequelizeModule} from '@nestjs/sequelize'
 import {ConfigModule} from '@nestjs/config'
+import { AuthModule } from './auth/auth.module';
 
  @Module({
   controllers: [],
@@ -18,7 +19,8 @@ import {ConfigModule} from '@nestjs/config'
       database: process.env.POSTGRESS_DB,
       models: [],
       autoLoadModels: true
-    })
+    }),
+    AuthModule
   ]
  })
  export class AppModule {
