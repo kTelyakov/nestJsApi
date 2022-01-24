@@ -1,4 +1,4 @@
-import {Body, HttpException, HttpStatus, Injectable} from '@nestjs/common';
+import {Body, HttpException, HttpStatus, Injectable, NotFoundException} from '@nestjs/common';
 import {User} from "./users.model";
 import {InjectModel} from "@nestjs/sequelize";
 import {CreateUserDto} from "./dto/create-user.dto";
@@ -34,8 +34,7 @@ export class UsersService {
   }
 
   async getUserByEmail (email: string) {
-    const user = this.userRepository.findOne({ where: { email }, include: { all: true } })
-    return user
+    return this.userRepository.findOne({ where: { email }, include: { all: true } })
   }
 
   async addRole (dto: AddRoleDto) {

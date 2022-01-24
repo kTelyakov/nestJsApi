@@ -9,7 +9,7 @@ import {RolesGuard} from "../auth/roles.guard";
 import {AddRoleDto} from "./dto/add-role.dto";
 import {BanUserDto} from "./dto/ban-user.dto";
 
-@ApiTags('ПОльзователи')
+@ApiTags('Пользователи')
 @Controller('users')
 export class UsersController {
 
@@ -25,7 +25,7 @@ export class UsersController {
   @ApiOperation({ summary: 'Получить всех пользователей' })
   @ApiResponse({ status: 200, type: [User] })
   @UseGuards(JwtAuthGuard)
-  @Get()
+  @Get('/')
   getAll() {
     return this.usersService.getAllUsers()
   }
