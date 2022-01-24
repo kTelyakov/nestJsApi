@@ -8,9 +8,9 @@ async function start () {
 
   const config = new DocumentBuilder()
     .setTitle('Урок по nest')
-    .setDescription('ДОКА ЕБАНА!')
-    .setVersion('111')
-    .addTag('FUCK')
+    .setDescription('description')
+    .setVersion('1')
+    .addTag('tag')
     .build()
 
   const document = SwaggerModule.createDocument(app, config);
